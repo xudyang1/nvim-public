@@ -7,7 +7,7 @@
   - [git](https://git-scm.com/downloads), `curl` or `wget`, `unzip`, `tar` or `gtar`, `gzip`
     - `add-apt-repository ppa:git-core/ppa; apt update; apt install git # latest stable git for ubuntu`
   - `npm`, `cargo`(`rust-analyzer`): mason.nvim need these package managers to download packages
-  - C compiler (gcc, clang, etc) and listdc++: nvim-treesitter
+  - C compiler (gcc, clang, etc) and libstdc++: nvim-treesitter
 
 - Optional:
   - [ripgrep](https://github.com/BurntSushi/ripgrep): telescope.nvim `live_grep` and `grep_string`
