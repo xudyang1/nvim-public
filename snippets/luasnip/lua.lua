@@ -1,0 +1,7 @@
+-- local nodes = require("utils.snippet_nodes")
+-- -- selene: allow(unused_variable)
+-- ---@diagnostic disable: unused-local
+-- local s, sn, t, i, f, c, d, indent, ai, k, fmt, fmta =
+--   nodes.s, nodes.sn, nodes.t, nodes.i, nodes.f, nodes.c, nodes.d, nodes.indent, nodes.ai, nodes.k, nodes.fmt, nodes.fmta
+-- ---@diagnostic enable unused-local
+-- return {}
