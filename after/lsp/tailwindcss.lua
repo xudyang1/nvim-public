@@ -1,0 +1,86 @@
+local filetypes = {
+  "aspnetcorerazor",
+  "astro",
+  "astro-markdown",
+  "blade",
+  "clojure",
+  "django-html",
+  "htmldjango",
+  "edge",
+  "eelixir",
+  "elixir",
+  "ejs",
+  "erb",
+  "eruby",
+  "gohtml",
+  "gohtmltmpl",
+  "haml",
+  "handlebars",
+  "hbs",
+  "html",
+  "htmlangular",
+  "html-eex",
+  "heex",
+  "jade",
+  "leaf",
+  "liquid",
+  "markdown",
+  "mdx",
+  "mustache",
+  "njk",
+  "nunjucks",
+  "php",
+  "razor",
+  "slim",
+  "twig",
+  "css",
+  "less",
+  "postcss",
+  "sass",
+  "scss",
+  "stylus",
+  "sugarss",
+  "javascript",
+  "javascriptreact",
+  "reason",
+  "rescript",
+  "typescript",
+  "typescriptreact",
+  "vue",
+  "svelte",
+  "templ",
+}
+
+return {
+  filetypes = vim.tbl_filter(function(ft)
+    return ft ~= "markdown" and ft ~= "mdx"
+  end, filetypes),
+  root_dir = function(bufnr, on_dir)
+    local fname = vim.api.nvim_buf_get_name(bufnr)
+
+    local root_files = {
+      -- Generic
+      "tailwind.config.js",
+      "tailwind.config.cjs",
+      "tailwind.config.mjs",
+      "tailwind.config.ts",
+      "postcss.config.js",
+      "postcss.config.cjs",
+      "postcss.config.mjs",
+      "postcss.config.ts",
+      -- Django
+      "theme/static_src/tailwind.config.js",
+      "theme/static_src/tailwind.config.cjs",
+      "theme/static_src/tailwind.config.mjs",
+      "theme/static_src/tailwind.config.ts",
+      "theme/static_src/postcss.config.js",
+      -- Fallback for tailwind v4, where tailwind.config.* is not required anymore
+      ".git",
+      "package.json",
+      "vite.config.js",
+      "vite.config.mjs",
+      "vite.config.ts",
+    }
+    on_dir(vim.fs.dirname(vim.fs.find(root_files, { path = fname, upward = true })[1]))
+  end,
+}
